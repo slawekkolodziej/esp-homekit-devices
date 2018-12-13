@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  sdk:
+    container_name: esp
+    image: slawekkolodziej/esp-open-rtos
+    privileged: true
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/home/esp/workspace:delegated
