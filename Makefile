@@ -1,12 +1,19 @@
-WORKSPACE_ROOT := $(dir $(lastword $(MAKEFILE_LIST)))
 ESPPORT=/dev/tty.wchusbserial1410
 BAUD=115200
 
 build:
-	@docker-compose run --rm sdk make -C devices/$(dev) all
+	@docker run --rm -it \
+		-e "ESPBAUD=$(BAUD)" \
+		-v $(PWD):/home/esp/workspace:delegated \
+		slawekkolodziej/esp-open-rtos \
+		make -C devices/$(dev) all
 
 clean:
-	@docker-compose run --rm sdk make -C devices/$(dev) clean
+	@docker run --rm -it \
+		-e "ESPBAUD=$(BAUD)" \
+		-v $(PWD):/home/esp/workspace:delegated \
+		slawekkolodziej/esp-open-rtos \
+		make -C devices/$(dev) clean
 
 flash-clean:
 	@esptool.py \
