@@ -13,12 +13,12 @@ You have to have docker and esptool.py installed in the host OS (eg. macos).
 I use this image with my devices repository:
 https://github.com/slawekkolodziej/esp-homekit-devices
 
-Using docker image for building images has some advantages, especially on MacOS:
+Using docker image for building device images has some advantages, especially on MacOS:
 - Works on latest macos without any issue
 - Saves you from preparing toolchain on your own
 - You don't have to create case-sensitive volume
 
-In my project I use a single Makefile that abstracts building images with docker, flashing process and even connecting to the serial monitor.
+I use a single Makefile that abstracts building images with docker, flashing process and even connecting to the serial monitor.
 
 With my makefile I can use the following commands:
 
