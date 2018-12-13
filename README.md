@@ -38,14 +38,14 @@ build:
   @docker run --rm -it \
     -e "ESPBAUD=$(BAUD)" \
     -v $(PWD):/home/esp/workspace:delegated \
-    slawekkolodziej/esp-open-rtos \
+    slawekkolodziej/esp-open-sdk \
     make -C devices/$(dev) all
 
 clean:
   @docker run --rm -it \
     -e "ESPBAUD=$(BAUD)" \
     -v $(PWD):/home/esp/workspace:delegated \
-    slawekkolodziej/esp-open-rtos \
+    slawekkolodziej/esp-open-sdk \
     make -C devices/$(dev) clean
 
 flash-clean:
